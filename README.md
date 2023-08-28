@@ -160,6 +160,6 @@ The URL in LocalFunctionApi is the Azure function URL running locally
 2. Go to Azure portal -> GetResumeCounter function and add Application setting called AzureResumeConnectionString, use the value from the localsettings.json.
 3. Enable CORS on the Azure Function
 4. Make sure Azure Storage is installed on Visual Code. Right click on the frontend folder  and select: Deploy to static website ia Azure Storage 
-5. Add the URL in CORS to make sure the function links to storage account: (https://kiutstorage.z6.web.core.windows.net) This URL is generated during storage account deployment. 
+5. Add the URL in CORS to make sure the function links to storage account: https://kiutstorage.z6.web.core.windows.net This URL is generated during storage account deployment. 
 6. Create Azure CDN azureresumekelly 
    
