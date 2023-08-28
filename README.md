@@ -12,32 +12,35 @@
 ## Frontend
 
 1. Create Git respository
-2. Copie respository locally
-   - On Linux typed git clone `git@github.com:linkgoba/azure-resume.git`
-3. Copie sample code from the original repository
+2. Copy respository locally
+   - On Linux type git clone `git@github.com:linkgoba/azure-resume.git`
+3. Copy sample code from the original repository
 4. Type: Code . to open Visual Studio
 5. Update index.html within the Frontend folder to reflect CV content
 6. Create main.js within the Frontend folder with the following code:
-```
-window.addEventListener('DOMContentLoaded', (event) => { 
-getVisitCount(); 
-}) 
-const functionAPIUrl = 'https://getresumecounterkelly.azurewebsites.net/GetResumeCounter?code=Fk81OM7TRAulctda272poAkCvKRuPr0Bs6ogLI2SjBEqAzFu-IzjnA==';  
-const LocalFunctionApi = 'http://localhost:7071/GetResumeCounter'; 
-   const getVisitCount = () => { 
-   let count =30; 
-   fetch(functionAPIUrl).then(response => { 
-   return response.json() 
-   }).then (response => { 
-console.log("Website called funtion API."); 
-count = response.count; 
-document.getElementById("counter").innerText = count; 
-}).catch(function(error){ 
-console.log(error); 
-}); 
-return count; 
-} 
-```
+
+   ```
+   window.addEventListener('DOMContentLoaded', (event) => {getVisitCount();}) 
+   const functionAPIUrl = 'https://getresumecounterkelly.azurewebsites.net/GetResumeCounter?code=Fk81OM7TRAulctda272poAkCvKRuPr0Bs6ogLI2SjBEqAzFu-IzjnA==';  
+   const LocalFunctionApi = 'http://localhost:7071/GetResumeCounter'; 
+   const getVisitCount = () =>
+      {
+      let count =30;
+      fetch(functionAPIUrl).then(response =>
+         { 
+         return response.json() 
+         }).then (response =>
+         { 
+         console.log("Website called funtion API."); 
+         count = response.count; 
+         document.getElementById("counter").innerText = count; 
+      }).catch(function(error)
+      { 
+      console.log(error); 
+      }); 
+   return count; 
+   } 
+   ```
 The URL in functionAPIURL is created by Azure function on the portal. 
 The URL in LocalFunctionApi is the Azure function URL running locally
 7. Update GitHub:
@@ -56,6 +59,7 @@ The URL in LocalFunctionApi is the Azure function URL running locally
 ### Azure Function
 
 1. In Visual Code, go to Azure Functions and create a local project (as HTTP Trigger) called GetResumeCounter and add the following code:
+
    ```
    using System; 
    using System.Net; 
@@ -110,9 +114,11 @@ The URL in LocalFunctionApi is the Azure function URL running locally
    } 
    }
    ```
-   2. RUn "func host start"
-   3. Test local URL: `localhost:7071/api/GetResumeCounter`
-   4. Edit localsettings.json file to add the connection string
+
+2. RUn "func host start"
+3. Test local URL: `localhost:7071/api/GetResumeCounter`
+4. Edit localsettings.json file to add the connection string
+
    ```
    { 
    "IsEncrypted": false, 
@@ -130,7 +136,9 @@ The URL in LocalFunctionApi is the Azure function URL running locally
    }
    ```
    The connection string is the same key (Primary Connection string) used in the Cosmos account under 'key settings'
-   5. Create Counter.cs file with the following code:
+
+5. Create Counter.cs file with the following code:
+
    ```
    using Newtonsoft.Json; 
    using Microsoft.AspNetCore.Mvc.NewtonsoftJson; 
