@@ -13,7 +13,7 @@
 
 1. Create Git respository
 2. Copy respository locally
-   - On Linux type git clone `git@github.com:linkgoba/azure-resume.git`
+   - On the Linux console type: git clone `git@github.com:linkgoba/azure-resume.git`
 3. Copy sample code from the original repository
 4. Type: Code . to open Visual Studio
 5. Update index.html within the Frontend folder to reflect CV content
